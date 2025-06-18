@@ -1,5 +1,6 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
 import { NewTaskData } from '../task/task.model';
+import { TasksService } from '../tasks.service';
 
 @Component({
   selector: 'app-add-task-dialog',
@@ -7,33 +8,40 @@ import { NewTaskData } from '../task/task.model';
   styleUrls: ['./add-task-dialog.component.css']
 })
 export class AddTaskDialogComponent implements OnInit {
-  @Output() cancel: EventEmitter<void> = new EventEmitter<void>();
+  @Output() close: EventEmitter<void> = new EventEmitter<void>();
+  @Input() userId: string;
   enteredTitle: string;
   enteredSummary: string;
   enteredDate: string;
 
-  @Output() addTask: EventEmitter<NewTaskData> = 
-  new EventEmitter<NewTaskData>(); 
+  private tasksService = inject(TasksService);
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  onCancel(): void {
-    this.cancel.emit();
+  onClose(): void {
+    this.close.emit();
   }
 
   onSubmit(): void {
     if (this.enteredTitle && this.enteredSummary && this.enteredDate) {
-      this.addTask.emit({
-        title: this.enteredTitle,
-        summary: this.enteredSummary,
-        date: this.enteredDate
-      });
+      this.tasksService.AddTask(
+        {
+          title: this.enteredTitle,
+          summary: this.enteredSummary,
+          date: this.enteredDate
+        },
+        this.userId
+      );
+
       this.enteredTitle = '';
       this.enteredSummary = '';
       this.enteredDate = null;
+
+      this.close.emit();
     }
   }
+
 }

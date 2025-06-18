@@ -9,6 +9,7 @@ import { TasksComponent } from './tasks/tasks.component';
 import { TaskComponent } from './tasks/task/task.component';
 import { HeaderComponent } from './header/header.component';
 import { AddTaskDialogComponent } from './tasks/add-task-dialog/add-task-dialog.component';
+import { CardComponent } from './shared/card/card.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { AddTaskDialogComponent } from './tasks/add-task-dialog/add-task-dialog.
     TasksComponent,
     TaskComponent,
     HeaderComponent,
-    AddTaskDialogComponent
+    AddTaskDialogComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,

@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { dummyTasks } from 'src/assets/dummy-tasks';
 import { NewTaskData, Task } from './task/task.model';
 import { User } from '../user/user.model';
+import { TasksService } from './tasks.service';
 
 
 @Component({
@@ -10,41 +11,24 @@ import { User } from '../user/user.model';
   styleUrls: ['./tasks.component.css']
 })
 export class TasksComponent implements OnInit {
-  tasks: Task[] = dummyTasks;
   @Input() selectedUser: User;
   isAddingTask: boolean = false;
 
-  constructor() { }
+  constructor(private tasksService: TasksService) {
+   }
 
   ngOnInit(): void {
   }
 
   get tasksToShow(): Task[] {
-    return this.tasks.filter(task => task.userId === this.selectedUser.id);
-  }
-  
-  onComplete(id: string): void {
-    this.tasks = this.tasks.filter(task => task.id !== id);
+    return this.tasksService.getUserTasks(this.selectedUser.id);
   }
 
   onStartAddingTask(): void {
     this.isAddingTask = true;
   }
 
-  onCancelAddingTask(): void {
+  onCloseAddingTask(): void {
     this.isAddingTask = false;
   }
-
-  onAddTask(taskData: NewTaskData): void {
-   this.tasks.unshift({
-      id: Math.random().toString(),
-      title: taskData.title,
-      summary: taskData.summary,
-      dueDate: taskData.date,
-      userId: this.selectedUser.id
-    });
-    
-    this.isAddingTask = false;
-  }
-  
 }

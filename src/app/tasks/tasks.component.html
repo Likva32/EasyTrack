@@ -1,4 +1,4 @@
-<app-add-task-dialog (cancel)="onCancelAddingTask()" *ngIf="isAddingTask" (addTask)="onAddTask($event)"></app-add-task-dialog>
+<app-add-task-dialog (close)="onCloseAddingTask()" *ngIf="isAddingTask" [userId]="selectedUser.id"></app-add-task-dialog>
 
 <section id="tasks">
   <menu>
@@ -8,9 +8,7 @@
     </header>
     
     <ul>
-
-    
-    <app-task *ngFor="let task of tasksToShow" [task]="task" (complete)="onComplete($event)" ></app-task>
-      </ul>
+      <app-task *ngFor="let task of tasksToShow" [task]="task" ></app-task>
+    </ul>
   </menu>
 </section>
