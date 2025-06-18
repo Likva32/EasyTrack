@@ -1,0 +1,15 @@
+<app-header></app-header>
+
+<main class="content" role="main">
+
+  <section id="users">
+    <app-user *ngFor="let user of users;" [user]="user" [selected]="selectedUserId===user.id" (select)="onSelectUser($event)"></app-user>
+    <p *ngIf="!users.length">No users found.</p>
+  </section>
+
+  <app-tasks  *ngIf="selectedUserId" [selectedUser]="selectedUser"></app-tasks>
+  
+</main>
+
+
+<router-outlet></router-outlet>
