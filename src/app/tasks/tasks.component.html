@@ -1,0 +1,16 @@
+<app-add-task-dialog (cancel)="onCancelAddingTask()" *ngIf="isAddingTask" (addTask)="onAddTask($event)"></app-add-task-dialog>
+
+<section id="tasks">
+  <menu>
+    <header>
+      <h2>{{selectedUser.name}} Task`s</h2>
+      <button class="add-task" (click)="onStartAddingTask()">Add Task</button>
+    </header>
+    
+    <ul>
+
+    
+    <app-task *ngFor="let task of tasksToShow" [task]="task" (complete)="onComplete($event)" ></app-task>
+      </ul>
+  </menu>
+</section>
