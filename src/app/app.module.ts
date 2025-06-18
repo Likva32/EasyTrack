@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -15,17 +14,17 @@ import { CardComponent } from './shared/card/card.component';
   declarations: [
     AppComponent,
     UserComponent,
-    TasksComponent,
-    TaskComponent,
     HeaderComponent,
-    AddTaskDialogComponent,
     CardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    TasksComponent,
+    TaskComponent,
+    AddTaskDialogComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,11 +1,13 @@
 import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
-import { NewTaskData } from '../task/task.model';
 import { TasksService } from '../tasks.service';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-add-task-dialog',
   templateUrl: './add-task-dialog.component.html',
-  styleUrls: ['./add-task-dialog.component.css']
+  styleUrls: ['./add-task-dialog.component.css'],
+  standalone: true,
+  imports: [FormsModule]
 })
 export class AddTaskDialogComponent implements OnInit {
   @Output() close: EventEmitter<void> = new EventEmitter<void>();
