@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # EasyTrack
 demo angular application 
 =======
@@ -29,4 +28,4 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
->>>>>>> 0c99fce1f0655492817976069c8888b6e9e6bb0b
+
