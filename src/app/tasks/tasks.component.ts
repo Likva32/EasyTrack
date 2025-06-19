@@ -12,8 +12,6 @@ import { NgFor, NgIf } from '@angular/common';
   selector: 'app-tasks',
   templateUrl: './tasks.component.html',
   styleUrls: ['./tasks.component.css'],
-  standalone: true,
-  imports: [TaskComponent, AddTaskDialogComponent, NgIf, NgFor],
 })
 export class TasksComponent implements OnInit {
   @Input() selectedUser: User;

@@ -6,14 +6,11 @@ import { DatePipe, NgFor, NgIf } from '@angular/common';
 @Component({
   selector: 'app-task',
   templateUrl: './task.component.html',
-  styleUrls: ['./task.component.css'],
-  standalone: true,
-  imports: [DatePipe]
+  styleUrls: ['./task.component.css']
 })
 export class TaskComponent implements OnInit {
   @Input() task: Task;
-  @Output() complete: EventEmitter<string> = new EventEmitter<string>();
-  
+  @Output() complete: EventEmitter<string> = new EventEmitter<string>();  
 
   constructor(private tasksService: TasksService) { }
 

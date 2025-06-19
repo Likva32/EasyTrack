@@ -9,22 +9,21 @@ import { TaskComponent } from './tasks/task/task.component';
 import { HeaderComponent } from './header/header.component';
 import { AddTaskDialogComponent } from './tasks/add-task-dialog/add-task-dialog.component';
 import { CardComponent } from './shared/card/card.component';
+import { TasksModule } from './tasks/tasks.module';
+import { CardModule } from './shared/card/card.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserComponent,
     HeaderComponent,
-    CardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule,
-    TasksComponent,
-    TaskComponent,
-    AddTaskDialogComponent
+    TasksModule,
+    CardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -5,9 +5,7 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-add-task-dialog',
   templateUrl: './add-task-dialog.component.html',
-  styleUrls: ['./add-task-dialog.component.css'],
-  standalone: true,
-  imports: [FormsModule]
+  styleUrls: ['./add-task-dialog.component.css']
 })
 export class AddTaskDialogComponent implements OnInit {
   @Output() close: EventEmitter<void> = new EventEmitter<void>();
