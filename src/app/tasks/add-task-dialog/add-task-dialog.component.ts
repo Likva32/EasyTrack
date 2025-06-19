@@ -1,6 +1,5 @@
 import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
 import { TasksService } from '../tasks.service';
-import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-add-task-dialog',

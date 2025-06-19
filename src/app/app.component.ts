@@ -4,7 +4,6 @@ import { debounceTime, distinctUntilChanged } from 'rxjs';
 import { DUMMY_USERS } from 'src/assets/dummy-users';
 import { User } from './user/user.model';
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
